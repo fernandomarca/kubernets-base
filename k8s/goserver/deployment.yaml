@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goserver
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: goserver
+#pod.yaml
+  template:
+    metadata:
+      labels:
+        app: goserver
+    spec:
+      containers:
+      - name: goserver
+        image: fernandomarca/goserver
+        ports:
+        - containerPort: 9090
